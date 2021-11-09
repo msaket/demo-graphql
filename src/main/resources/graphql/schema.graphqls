@@ -1,0 +1,34 @@
+type Query {
+	countries : [Country]
+	countriesByCode(countryCode: String) : Country
+}
+
+type Country {
+	countryCode: String
+	countryName: String
+	states: [State]
+}
+
+type State {
+	countryCode: String
+	stateCode: String
+	stateName: String
+}
+
+type Mutation {
+	addCountry(countryCode: String, countryName: String) : Country
+}
+
+type Subscription {
+	countryEvents(countryCode: String) : Country
+}
+
+type CountryEvents {
+	country: Country
+	event: CountryEventType
+}
+
+enum CountryEventType {
+	UPDATED
+	DELETED
+}
