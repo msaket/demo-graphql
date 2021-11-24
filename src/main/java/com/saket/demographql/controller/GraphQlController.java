@@ -30,7 +30,7 @@ public class GraphQlController {
 	}
 	
 	@QueryMapping
-	CountryMaster countriesByCode(@Argument String countryCode) {
+	CountryMaster countryByCode(@Argument String countryCode) {
 		return masterService.findCountryByCode(countryCode);
 	}
 	
